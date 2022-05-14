@@ -1,0 +1,41 @@
+<!----------------------------------CREATED AND DESIGNED BY MOIZ PATRA----------------------------->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>No. Updater</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body style="background-color: lightblue;">
+        <div class="background">
+            <div class="container">
+                <form method="post" class="form" autocomplete="off" name="google-sheet">
+                    <label for="number">Enter Number :</label><br>
+                    <input name="Number" type="tel" id="number" maxlength="8" minlength="8" required placeholder="Enter the Mobile No."><br>
+
+                    <div class="button">
+                        <input type="submit" value="Submit" name="Submit">
+                        <input type="reset" value="Reset">
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+
+
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzKRXGLNKidb_FScrOlVMZnOiKlCyh5mqjY8MLyTorWGycgsylJRG7WRhviqBtAgKcH/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Done👍👍"))
+                .catch(error => console.error('Error!', error.message))
+            })
+        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </body>
+</html>
